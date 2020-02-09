@@ -1,0 +1,40 @@
+
+.homec {
+    width: 100%;
+    min-height: 80%;
+    float: left;
+}
+
+.cat { 
+    background-color: #5cbbf2; 
+    border-bottom-left-radius: 1em;
+    border-top-left-radius: 1em;
+    float: left;
+    width: 30%;
+} 
+
+.prod { 
+    background:blue; 
+    border-bottom-right-radius: 1em;
+    border-top-right-radius: 1em;
+    float: right;
+    width: 65%;
+} 
+
+.catFormProdButton {
+    width: 100%;
+    height: 5%;;
+    margin-bottom: 5px;
+    float: left;
+}
+
+.addCatForm { 
+    float: left;
+    width: 30%;
+} 
+
+.addProdButton { 
+    float: right;
+    widows: 65%;
+} 
+

@@ -1,0 +1,31 @@
+
+<form [formGroup]="productGroup" (ngSubmit)="onSubmit()">
+
+    <h5 *ngIf="success" >Valid Product Entries </h5>
+    <label>
+        Category Id: <br/>
+        <input type="text" formControlName="catId">
+        <div *ngIf="submitted && messageForm.controls.categoryName.errors" class="error"></div>
+
+    </label><br/>
+    <label>
+        Product Name: <br/>
+        <input type="text" formControlName="prodName">
+        <div *ngIf="submitted && messageForm.controls.categoryName.errors" class="error"></div>
+
+    </label><br/>
+    <label>
+        Product Description: <br/>
+        <textarea formControlName="prodDescrip"></textarea>
+        <div *ngIf="submitted && messageForm.controls.categoryName.errors" class="error"></div>
+
+    </label><br/>
+    <label><br/>
+        Product Image Url: <br/>
+        <input type="text" formControlName="prodImageUrl">
+        <div *ngIf="submitted && messageForm.controls.categoryName.errors" class="error"></div>
+
+    </label><br/>
+    <input type="submit" value="Add Product" class="cta">
+
+</form>

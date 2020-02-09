@@ -1,0 +1,15 @@
+
+
+<p>This Is Categorry Section</p>
+
+<ul *ngIf="categories">
+    <li *ngFor="let category of categories.data">
+        <p>
+            {{category.catName}}
+        </p>
+
+    </li>
+
+
+</ul>
+
