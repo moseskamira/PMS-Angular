@@ -16,7 +16,7 @@ export class AddProductComponent implements OnInit {
       catId: ['', Validators.required],
       prodName: ['', Validators.required],
       prodDescrip: ['', Validators.required],
-      rodImageUrl: ['', Validators.required],
+      prodImageUrl: ['', Validators.required],
     })
    }
 

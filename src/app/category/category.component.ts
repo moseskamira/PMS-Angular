@@ -8,22 +8,26 @@ import { DataService } from '../data.service';
 })
 export class CategoryComponent implements OnInit {
 
-
-
-
   categories: Object;
-  constructor(private data: DataService) { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.data.getCategories().subscribe(
-      data=> {
-        this.categories = data
-        // console.log(this.categories)
-
+    this.dataService.getCategories().subscribe(
+      catData=> {
+        this.categories = catData
+        console.log(this.categories)
       }
     )
   }
 
+  deleteCategory(categoryId: number) {
+    this.dataService.deleteCategory(categoryId).subscribe(
+      catData=> {
+        this.categories = catData
+        console.log(this.categories)
+      }
+    )
+  }
 
 
 }
