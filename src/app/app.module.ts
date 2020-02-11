@@ -10,7 +10,6 @@ import { ContactComponent } from './contact/contact.component';
 import { CategoryComponent } from './category/category.component';
 import { ProductComponent } from './product/product.component';
 import { from } from 'rxjs';
-import { AddCategoryComponent } from './add-category/add-category.component';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AddProductComponent } from './add-product/add-product.component';
@@ -23,7 +22,6 @@ import { AddProductComponent } from './add-product/add-product.component';
     ContactComponent,
     CategoryComponent,
     ProductComponent,
-    AddCategoryComponent,
     AddProductComponent
   ],
   imports: [
