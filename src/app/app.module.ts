@@ -13,6 +13,7 @@ import { from } from 'rxjs';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ContactComponent,
     CategoryComponent,
     ProductComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    AddProductComponent
   ],
   imports: [
     CommonModule,

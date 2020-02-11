@@ -1,15 +1,27 @@
 
+<div>
+    <table class="table table-striped">
+        <tr *ngFor="let category of categories">
+            <td>
+                {{category.catName}}
+            </td>
+            <td> 
+                <button (click)="editCategory(category.catId)">Edit </button>
+            </td>
+            <td> 
+                <button (click)="deleteCategory(category.catId)">Del </button>
+            </td>
+            <td> 
+                <button (click)="addProd()">Add Product </button>
+            </td>
+            <td> 
+                <button (click)="viewProd()">View Products </button>
+            </td>
 
-<p>This Is Categorry Section</p>
 
-<ul *ngIf="categories">
-    <li *ngFor="let category of categories.data">
-        <p>
-            {{category.catName}}
-        </p>
+        </tr>
 
-    </li>
+    </table>
+</div>
 
-
-</ul>
 
