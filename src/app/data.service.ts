@@ -18,7 +18,6 @@ export class DataService {
     });
     this.body = JSON.stringify(newCategory);
     return this.http.post(this.baseUrl+'/category',newCategory,{responseType: 'json', headers});
-    
   }
   
   getCategories(): Observable<any> {
@@ -29,13 +28,14 @@ export class DataService {
     return this.http.get(this.baseUrl+'/category',{responseType: 'json', headers});
   }
   
-  deleteCategory(id: number): Observable<any> {
+  deleteCategory(catId: number): Observable<any> {
     const headers = new HttpHeaders({ 
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin':'*'
     }); 
     
-    return this.http.delete(this.baseUrl+'/category/${id}',{responseType: 'text', headers});
+    return this.http.delete(this.baseUrl+'/category/${catId}',{responseType: 'text'});
+
   }
 
   updateCategory(id: number, value: any): Observable<any> {
@@ -55,4 +55,13 @@ export class DataService {
       'Access-Control-Allow-Origin':'*'
     }); 
     return this.http.get('https://online-shopping-api.herokuapp.com/onlineshopping/category/${id}',{responseType: 'json', headers});
-  }}
+  }
+
+  getcategoryProducts(id: number): Observable<any> {
+    const headers = new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin':'*'
+    }); 
+    return this.http.get(this.baseUrl+"/category/"+id+"/product",{responseType: 'json', headers});
+  }
+}

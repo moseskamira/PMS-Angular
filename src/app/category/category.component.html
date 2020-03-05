@@ -1,27 +1,49 @@
 
+<div class="catContainer">
 <div>
+    <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+        <input type="text" formControlName="categoryName" placeholder="Enter Category">
+        <div *ngIf="submitted && messageForm.controls.categoryName.errors" class="error">
+        </div>
+        <input type="submit" value="Add Category" class="cta">
+        <h5 *ngIf="success" style="color: green;">{{smsg.toUpperCase()}}</h5>
+    </form><br/>
+</div>
+
+<div class="catList">
     <table class="table table-striped">
         <tr *ngFor="let category of categories">
             <td>
-                {{category.catName}}
+                <a [title]="'View Products Under: '+category.catName" 
+                (click)="getCatProducts(category.catId)">
+                    {{category.catName | uppercase}}
+                </a>
+                  <!-- <p *ngIf="category.catId">
+                    Category Id: {{category.catId}}
+                  </p> -->
             </td>
-            <td> 
+            <!-- <td> 
                 <button (click)="editCategory(category.catId)">Edit </button>
             </td>
             <td> 
-                <button (click)="deleteCategory(category.catId)">Del </button>
+                <button (click)="delCat(category.catId)">Del </button>
             </td>
             <td> 
-                <button (click)="addProd()">Add Product </button>
-            </td>
-            <td> 
-                <button (click)="viewProd()">View Products </button>
-            </td>
-
-
+                <button (click)="viewProd()">Products </button>
+            </td> -->
         </tr>
-
     </table>
+</div>
+<div class="catProds">
+    <table class="table table-striped">
+        <tr *ngFor="let catProduct of catProducts">
+            <td>
+                {{catProduct.prodDescrip}}
+            </td>
+        </tr>
+    </table>
+</div>
+
 </div>
 
 
