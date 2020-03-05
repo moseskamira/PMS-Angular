@@ -1,17 +1,55 @@
 
 .catContainer {
-    width: 70%;
-    height: 80%;
+    width: 72%;
+    min-height: 100%;
     margin: auto;
-  }
-  
-  .catList {
-    width: 40%;
-    height: 200px;
     float: left;
   }
+
+  .reservedDiv {
+    width: 28%;
+    min-height: 100%;
+    margin: auto;
+    float: right;
+
+  }
   
-  .catProds {
-    margin-left: 15%;
-    height: 200px;
+.catList {
+    width: 30%;
+    height: auto;
+    margin-right: 1%;
+    float: left;
+    padding: 2px 2px;
+    border-radius: 1em;
+  }
+  
+.catProds {
+    float: right;
+    width: 40%;
+    border-radius: 1em;
+    padding: 2px 2px;
+    height: auto;
+  }
+
+.btn_edit {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  padding: 2px 2px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+.btn:hover {
+  background-color: RoyalBlue;
+}
+
+.btn_del {
+    background-color: rgb(226, 11, 11);
+    border: none;
+    color: white;
+    padding: 2px 2px;
+    font-size: 16px;
+    cursor: pointer;
   }

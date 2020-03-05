@@ -2,13 +2,16 @@
     <div class="myTitle">
         <h1>{{title}}</h1>
     </div>
-    <div class="container">
+    <div class="navcontainer">
+        <mat-toolbar color="secondary"> 
         <nav>
             <ul>
+                <li><button mat-button routerLink="">Home</button></li>
                 <li><button mat-button routerLink="/about">About</button></li>
                 <li><button mat-button routerLink="/contact">Contact Us</button></li>
                 <li><button mat-button routerLink="/product">Add Product</button></li>
             </ul>
         </nav>
+    </mat-toolbar>
     </div>
 </header>

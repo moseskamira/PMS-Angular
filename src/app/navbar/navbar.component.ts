@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class NavbarComponent implements OnInit {
-  title: string = "P.M.S";
+  title: string = "PRODUCT MANAGEMENT SYSTEM";
   constructor() { }
   ngOnInit() {
   }

@@ -6,9 +6,9 @@ header {
 .myTitle {
     font-weight: bold;
     float: left;
-    margin-left: 5%;
+    margin: 0 auto;
+    padding: 1.3em;
 }
-
 
 nav {
     justify-self: right;
@@ -30,7 +30,7 @@ nav {
     }
 }
 
-.container {
+.navcontainer {
     width: 50%;
     margin: 0 auto;
     padding: 1.3em;
