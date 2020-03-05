@@ -38,7 +38,10 @@
     <table class="table table-striped">
         <tr *ngFor="let catProduct of catProducts">
             <td>
-                {{catProduct.prodDescrip}}
+                {{catProduct.prodId}} <br/>
+                {{catProduct.prodName}}<br/>
+                {{catProduct.prodDescrip}}<br/>
+                {{catProduct.prodImageUrl}}
             </td>
         </tr>
     </table>
