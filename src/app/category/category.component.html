@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="catContainer">
 <div>
@@ -12,41 +13,58 @@
 
 <div class="catList">
     <table class="table table-striped">
+        <mat-spinner mode="determinate" value=25 diameter="50" strokeWidth="4" *ngIf="!categories">
+        </mat-spinner>
         <tr *ngFor="let category of categories">
             <td>
-                <a [title]="'View Products Under: '+category.catName" 
-                (click)="getCatProducts(category.catId)">
+                <a [title]="'View Products Under: '+category.catName">
                     {{category.catName | uppercase}}
                 </a>
-                  <!-- <p *ngIf="category.catId">
-                    Category Id: {{category.catId}}
-                  </p> -->
-            </td>
-            <!-- <td> 
-                <button (click)="editCategory(category.catId)">Edit </button>
             </td>
             <td> 
-                <button (click)="delCat(category.catId)">Del </button>
+                <button mat-button (click)="getCatProducts(category.catId)" class="btn_edit">ViewProd</button>
             </td>
             <td> 
-                <button (click)="viewProd()">Products </button>
-            </td> -->
+                <button mat-button (click)="delCat(category.catId)" class="btn_del"><i class="fa fa-trash"></i></button>
+            </td>
         </tr>
     </table>
 </div>
-<div class="catProds">
-    <table class="table table-striped">
-        <tr *ngFor="let catProduct of catProducts">
-            <td>
-                {{catProduct.prodId}} <br/>
-                {{catProduct.prodName}}<br/>
-                {{catProduct.prodDescrip}}<br/>
-                {{catProduct.prodImageUrl}}
-            </td>
-        </tr>
-    </table>
+<div class="catProds" style="padding: 13px;">
+    <div>
+        <mat-card *ngFor="let catProduct of catProducts" style="margin-top:2px;">
+            <mat-card-header>
+                <mat-card-title>#{{catProduct.prodId}} {{catProduct.prodName}}</mat-card-title>
+                <!-- <mat-card-subtitle>{{product.price}} $/ {{product.quantity}} -->
+                <!-- </mat-card-subtitle> -->
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                    {{catProduct.prodDescrip}}<br/>
+                    {{catProduct.prodImageUrl}}<br/>
+                    <mat-card-actions>
+                        <button mat-button (click)="editProduct(product.prodId)" class="btn_edit">Edit</button>&nbsp;&nbsp;
+                        <button mat-button (click)="delProduct(product.prodId)" class="btn_del">Del</button>
+                    </mat-card-actions>
+                </p>
+                <!-- <img style="height:100%; width: 100%;" src="{{ product.imageUrl }}" /> -->
+            </mat-card-content>
+            <!-- <mat-card-actions></mat-card-actions> -->
+        </mat-card>
+    </div>
+    <div>
+        <button (click) ="loadFirstPage()" mat-button> First</button>
+        <button (click) ="loadPreviousPage()" mat-button> Previous</button>
+        <button (click) ="loadNextPage()" mat-button> Next</button>
+        <button (click) ="loadLastPage()" mat-button> Last</button>
+    </div>
+
 </div>
 
+</div>
+
+<div class="reservedDiv">
+    <p> This Section Is Reserved For Future Use </p>
 </div>
 
 

@@ -3,6 +3,7 @@ import { DataService } from '../data.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Category } from '../shared/models/category';
 
+
 @Component({
   selector: '.app-category',
   templateUrl: './category.component.html',
@@ -25,14 +26,13 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit() {
     this.reloadCategoryData();
-   
+    this.getCatProducts(2);
   }
 
   reloadCategoryData() {
     this.dataService.getCategories().subscribe(
       catData=> {
         this.categories = catData
-        console.log(this.categories)
       }
     )
   }
@@ -66,11 +66,7 @@ export class CategoryComponent implements OnInit {
     this.dataService.getcategoryProducts(id).subscribe(
       catProdData=>{
         this.catProducts = catProdData;
-        console.log(this.catProducts);
-
       }
-
     )
-
   }
 }
