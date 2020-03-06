@@ -3,6 +3,7 @@ import { DataService } from '../data.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Category } from '../shared/models/category';
 
+
 @Component({
   selector: '.app-category',
   templateUrl: './category.component.html',
@@ -25,14 +26,13 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit() {
     this.reloadCategoryData();
-   
+    this.getCatProducts(2);
   }
 
   reloadCategoryData() {
     this.dataService.getCategories().subscribe(
       catData=> {
         this.categories = catData
-        console.log(this.categories)
       }
     )
   }
@@ -66,11 +66,47 @@ export class CategoryComponent implements OnInit {
     this.dataService.getcategoryProducts(id).subscribe(
       catProdData=>{
         this.catProducts = catProdData;
-        console.log(this.catProducts);
-
       }
-
     )
+  }
+
+  public loadFirstPage() {
+    // this.products = [];
+    // this.apiService.sendGetRequestToUrl(this.apiService.first).pipe(takeUntil(this.destroy$)).subscribe((res: HttpResponse<any>) => {
+    //   console.log(res);
+    //   this.products = res.body;
+    // })
+  }
+  public loadPreviousPage() {
+    console.log("Clicked Previous Button");
+
+    // if (this.apiService.prev !== undefined && this.apiService.prev !== '') {
+    //   this.products = [];
+    //   this.apiService.sendGetRequestToUrl(this.apiService.prev).pipe(takeUntil(this.destroy$)).subscribe((res: HttpResponse<any>) => {
+    //     console.log(res);
+    //     this.products = res.body;
+    //   })
+    // }
 
   }
+  public loadNextPage() {
+    console.log("Clicked Next Page Button");
+    // if (this.apiService.next !== undefined && this.apiService.next !== '') {
+    //   this.products = [];
+    //   this.apiService.sendGetRequestToUrl(this.apiService.next).pipe(takeUntil(this.destroy$)).subscribe((res: HttpResponse<any>) => {
+    //     console.log(res);
+    //     this.products = res.body;
+    //   })
+    // }
+  }
+  public loadLastPage() {
+    console.log("Clicked Last Page Button");
+    // this.products = [];
+    // this.apiService.sendGetRequestToUrl(this.apiService.last).pipe(takeUntil(this.destroy$)).subscribe((res: HttpResponse<any>) => {
+    //   console.log(res);
+    //   this.products = res.body;
+    // })
+  }
+
+
 }

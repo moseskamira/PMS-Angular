@@ -19,6 +19,8 @@ import { MatToolbarModule,
   MatCardModule,
   MatButtonModule,
   MatProgressSpinnerModule } from '@angular/material';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { MatToolbarModule,
     ContactComponent,
     CategoryComponent,
     ProductComponent,
-    AddProductComponent
+    AddProductComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +45,8 @@ import { MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatCardModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
