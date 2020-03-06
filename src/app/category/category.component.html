@@ -30,7 +30,7 @@
         </tr>
     </table>
 </div>
-<div class="catProds" style="padding: 13px;">
+<div class="catProds">
     <div>
         <mat-card *ngFor="let catProduct of catProducts" style="margin-top:2px;">
             <mat-card-header>
@@ -53,10 +53,8 @@
         </mat-card>
     </div>
     <div>
-        <button (click) ="loadFirstPage()" mat-button> First</button>
-        <button (click) ="loadPreviousPage()" mat-button> Previous</button>
+        <button (click) ="loadPreviousPage()" mat-button> Prev</button>
         <button (click) ="loadNextPage()" mat-button> Next</button>
-        <button (click) ="loadLastPage()" mat-button> Last</button>
     </div>
 
 </div>

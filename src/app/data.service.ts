@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable } from 'rxjs';
 import { Category } from './shared/models/category';
 import {  throwError } from 'rxjs';
-// import { retry, catchError } from 'rxjs/operators';
 import { retry, catchError, tap } from 'rxjs/operators'
 
 
@@ -62,7 +61,8 @@ export class DataService {
       'Access-Control-Allow-Origin':'*'
     });
     this.body = JSON.stringify(newCategory);
-    return this.http.post(this.baseUrl+'/category',newCategory,{responseType: 'json', headers});
+    return this.http.post(this.baseUrl+'/category',newCategory,
+    {responseType: 'json', headers});
   }
   
   getCategories(): Observable<any> {
@@ -70,7 +70,10 @@ export class DataService {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin':'*'
     }); 
-    return this.http.get(this.baseUrl+'/category',{responseType: 'json', headers}).pipe(catchError(this.handleError));
+    return this.http.get(this.baseUrl+'/category',
+    {responseType: 'json', headers}).pipe(
+      retry(3),
+      catchError(this.handleError));
   }
   
   deleteCategory(catId: number): Observable<any> {
@@ -79,7 +82,8 @@ export class DataService {
       'Access-Control-Allow-Origin':'*'
     }); 
     
-    return this.http.delete(this.baseUrl+"/category/"+catId,{responseType: 'text', headers});
+    return this.http.delete(this.baseUrl+"/category/"+catId,
+    {responseType: 'text', headers});
 
   }
 
@@ -89,7 +93,8 @@ export class DataService {
       'Access-Control-Allow-Origin':'*'
     }
     ); 
-    return this.http.put(this.baseUrl+"/category/"+id, value,{responseType: 'json', headers});
+    return this.http.put(this.baseUrl+"/category/"+id, value,
+    {responseType: 'json', headers});
   }
   
   getSingleCategory(id: number): Observable<any> {
@@ -97,7 +102,8 @@ export class DataService {
       'Content-Type': 'text/plain',
       'Access-Control-Allow-Origin':'*'
     }); 
-    return this.http.get(this.baseUrl+"/category/"+id,{responseType: 'json', headers});
+    return this.http.get(this.baseUrl+"/category/"+id,
+    {responseType: 'json', headers});
   }
 
   getcategoryProducts(id: number): Observable<any> {
@@ -105,8 +111,28 @@ export class DataService {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin':'*'
     }); 
-    return this.http.get(this.baseUrl+"/category/"+id+"/product",{responseType: 'json', headers});
+    return this.http.get(this.baseUrl+"/category/"+id+"/product",
+    {responseType: 'json', headers});
   }
 
+  getcategoryProds(id: number, url: string): Observable<any> {
+    const headers = new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin':'*'
+    }); 
+    return this.http.get(this.baseUrl+"/category/"+id+"/product",
+    {responseType: 'json', headers});
+  }
+
+  getAllProducts() {
+    const headers = new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin':'*'
+    }); 
+    return this.http.get(this.baseUrl+'/category/product',
+    {responseType: 'json', headers}).pipe(
+      retry(3),
+      catchError(this.handleError));
+  }
 
 }
