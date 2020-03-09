@@ -1,0 +1,19 @@
+<div class="editProdDiv">
+
+    <form [formGroup]="editProductGroup" (ngSubmit)="onSubmit()" class="editProdForm">
+    
+        <h5 *ngIf="success" >Valid Product Entries </h5>
+        <label>Product Name:</label>
+        <input type="text" formControlName="prodName">
+        <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
+        <label>Product Description: </label>
+        <textarea formControlName="prodDescrip"></textarea>
+        <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
+        <label>Product Image Url: </label>
+        <input type="text" formControlName="prodImageUrl">
+        <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
+        <input type="submit" value="Save" class="cta">
+    
+    </form>
+    
+    </div>

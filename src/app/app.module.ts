@@ -21,6 +21,7 @@ import { MatToolbarModule,
   MatProgressSpinnerModule } from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FooterComponent } from './footer/footer.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FooterComponent } from './footer/footer.component';
     CategoryComponent,
     ProductComponent,
     AddProductComponent,
-    FooterComponent
+    FooterComponent,
+    EditProductComponent
   ],
   imports: [
     CommonModule,
