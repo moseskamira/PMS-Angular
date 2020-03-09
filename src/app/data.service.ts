@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Category } from './shared/models/category';
 import {  throwError } from 'rxjs';
 import { retry, catchError, tap } from 'rxjs/operators'
+import { Product } from './shared/models/product';
 
 
 
@@ -115,24 +116,29 @@ export class DataService {
     {responseType: 'json', headers});
   }
 
-  getcategoryProds(id: number, url: string): Observable<any> {
-    const headers = new HttpHeaders({ 
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin':'*'
-    }); 
-    return this.http.get(this.baseUrl+"/category/"+id+"/product",
-    {responseType: 'json', headers});
-  }
-
   getAllProducts() {
     const headers = new HttpHeaders({ 
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin':'*'
-    }); 
-    return this.http.get(this.baseUrl+'/category/product',
-    {responseType: 'json', headers}).pipe(
-      retry(3),
-      catchError(this.handleError));
+    });
+    return this.http.get(this.baseUrl+'/category/product',{responseType: 'json', headers}).pipe(catchError(this.handleError));
   }
 
+  addProduct(categoryId: number, newProduct: Product): Observable<any> {
+    const headers = new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin':'*'
+    });
+    this.body = JSON.stringify(newProduct);
+    return this.http.post(this.baseUrl+"/category/"+categoryId+"/product",newProduct,{responseType: 'json', headers});
+  }
+
+  deleteProduct(catId: number, prodId: number): Observable<any> {
+    const headers = new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin':'*'
+    }); 
+    return this.http.delete(this.baseUrl+"/category/"+catId+"/product/"+prodId,{responseType: 'text', headers});
+
+  }
 }

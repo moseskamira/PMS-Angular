@@ -1,31 +1,28 @@
 
-<form [formGroup]="productGroup" (ngSubmit)="onSubmit()">
+<div class="addProdDiv">
+
+<form [formGroup]="productGroup" (ngSubmit)="onSubmit()" class="addProdForm">
 
     <h5 *ngIf="success" >Valid Product Entries </h5>
-    <label>
-        Category Id: <br/>
-        <input type="text" formControlName="catId">
-        <div *ngIf="submitted && messageForm.controls.categoryName.errors" class="error"></div>
+    <label>Category Id:</label>
+    <input type="text" formControlName="catId">
+    <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
+    <label>Product Name:</label>
+    <input type="text" formControlName="prodName">
+    <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
 
-    </label><br/>
-    <label>
-        Product Name: <br/>
-        <input type="text" formControlName="prodName">
-        <div *ngIf="submitted && messageForm.controls.categoryName.errors" class="error"></div>
+    <label>Product Description: </label>
+    <textarea formControlName="prodDescrip"></textarea>
+    <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
 
-    </label><br/>
-    <label>
-        Product Description: <br/>
-        <textarea formControlName="prodDescrip"></textarea>
-        <div *ngIf="submitted && messageForm.controls.categoryName.errors" class="error"></div>
+    
+    <label>Product Image Url: </label>
+    <input type="text" formControlName="prodImageUrl">
+    <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
 
-    </label><br/>
-    <label><br/>
-        Product Image Url: <br/>
-        <input type="text" formControlName="prodImageUrl">
-        <div *ngIf="submitted && messageForm.controls.categoryName.errors" class="error"></div>
-
-    </label><br/>
+    
     <input type="submit" value="Add Product" class="cta">
 
 </form>
+
+</div>

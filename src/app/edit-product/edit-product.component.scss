@@ -1,5 +1,5 @@
 
-.addProdForm {
+.editProdForm {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -7,7 +7,7 @@
     align-items: stretch;
   }
 
-.addProdDiv {
+.editProdDiv {
     display: block;
     text-align: center;
     max-width: 60%;
@@ -21,12 +21,12 @@
 
 }
 
-.addProdForm label {
+.editProdForm label {
     margin: 5px 10px 5px 5px;
     text-align: left;
   }
   
-.addProdForm input {
+.editProdForm input {
     vertical-align: middle;
     margin: 5px 10px 5px 0;
     padding: 10px;
@@ -34,7 +34,7 @@
     border: 1px solid #ddd;
   }
   
-.addProdForm button {
+.editProdForm button {
     padding: 10px 20px;
     background-color: dodgerblue;
     border: 1px solid #ddd;
@@ -42,7 +42,7 @@
     cursor: pointer;
   }
 
-.addProdForm button:hover {
+.editProdForm button:hover {
     background-color: royalblue;
   }
 

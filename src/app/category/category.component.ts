@@ -81,6 +81,7 @@ export class CategoryComponent implements OnInit {
   }
 
   public loadPreviousPage() {
+    
     console.log("Clicked Previous Button");
 
     // if (this.apiService.prev !== undefined && this.apiService.prev !== '') {
@@ -92,6 +93,7 @@ export class CategoryComponent implements OnInit {
     // }
 
   }
+
   public loadNextPage() {
     console.log("Clicked Next Page Button");
     // if (this.apiService.next !== undefined && this.apiService.next !== '') {
@@ -101,6 +103,15 @@ export class CategoryComponent implements OnInit {
     //     this.products = res.body;
     //   })
     // }
+  }
+
+  delProd(cId:number, pId: number) {
+    this.dataService.deleteProduct(cId, pId).subscribe(
+      catData=> {
+        console.log("Deleted Successfully");
+        this.fetchAllProducts();
+      }
+    )
   }
 
 }
