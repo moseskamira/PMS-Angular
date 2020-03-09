@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Category } from '../shared/models/category';
+import { takeUntil } from 'rxjs/operators';
+import { HttpResponse } from '@angular/common/http';
 
 
 @Component({
@@ -26,13 +28,21 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit() {
     this.reloadCategoryData();
-    this.getCatProducts(2);
+    this.fetchAllProducts();
   }
 
   reloadCategoryData() {
     this.dataService.getCategories().subscribe(
       catData=> {
         this.categories = catData
+      }
+    )
+  }
+
+  fetchAllProducts() {
+    this.dataService.getAllProducts().subscribe(
+      catData=> {
+        this.catProducts = catData
       }
     )
   }
@@ -69,4 +79,28 @@ export class CategoryComponent implements OnInit {
       }
     )
   }
+
+  public loadPreviousPage() {
+    console.log("Clicked Previous Button");
+
+    // if (this.apiService.prev !== undefined && this.apiService.prev !== '') {
+    //   this.products = [];
+    //   this.apiService.sendGetRequestToUrl(this.apiService.prev).pipe(takeUntil(this.destroy$)).subscribe((res: HttpResponse<any>) => {
+    //     console.log(res);
+    //     this.products = res.body;
+    //   })
+    // }
+
+  }
+  public loadNextPage() {
+    console.log("Clicked Next Page Button");
+    // if (this.apiService.next !== undefined && this.apiService.next !== '') {
+    //   this.products = [];
+    //   this.apiService.sendGetRequestToUrl(this.apiService.next).pipe(takeUntil(this.destroy$)).subscribe((res: HttpResponse<any>) => {
+    //     console.log(res);
+    //     this.products = res.body;
+    //   })
+    // }
+  }
+
 }
