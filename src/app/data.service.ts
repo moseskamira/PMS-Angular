@@ -141,4 +141,26 @@ export class DataService {
     return this.http.delete(this.baseUrl+"/category/"+catId+"/product/"+prodId,{responseType: 'text', headers});
 
   }
+
+  editProduct(catId: number, prodId: number, editedProd: Product): Observable<any> {
+    const headers = new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin':'*'
+    });
+    this.body = JSON.stringify(editedProd);
+    return this.http.put(this.baseUrl+"/category/"+catId+"/product/"+prodId,editedProd,
+    {responseType: 'json', headers});
+  }
+
+  getSingleProduct(catId: number, prodId: number): Observable<any> {
+    const headers = new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin':'*'
+    });
+    return this.http.get(this.baseUrl+"/category/"+catId+"/product/"+prodId,
+    {responseType: 'json', headers});
+  }
+
+
+
 }
