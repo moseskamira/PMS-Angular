@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Category } from '../shared/models/category';
 import { takeUntil } from 'rxjs/operators';
 import { HttpResponse } from '@angular/common/http';
@@ -12,7 +12,7 @@ import { HttpResponse } from '@angular/common/http';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
-  messageForm: FormGroup;
+  addCategoryForm: FormGroup;
   submitted = false;
   success = false;
   category: Category;
@@ -21,7 +21,7 @@ export class CategoryComponent implements OnInit {
   categories: Object;
   catProducts: Object;
   constructor(private dataService: DataService, private formBuilder: FormBuilder) {
-    this.messageForm = this.formBuilder.group({
+    this.addCategoryForm = this.formBuilder.group({
       categoryName: ['', Validators.required]
     })
    }
@@ -49,11 +49,11 @@ export class CategoryComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    if(this.messageForm.invalid) {
+    if(this.addCategoryForm.invalid) {
       return;
     }
     this.category = new Category();
-    this.category.catName = this.messageForm.get('categoryName').value;
+    this.category.catName = this.addCategoryForm.get('categoryName').value;
     this.dataService.addCategory(this.category).subscribe(
       (response) => console.log(response),
     (error) => console.log(error));

@@ -2,9 +2,9 @@
 
 <div class="catContainer">
 <div>
-    <form [formGroup]="messageForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="addCategoryForm" (ngSubmit)="onSubmit()">
         <input type="text" formControlName="categoryName" placeholder="Enter Category">
-        <div *ngIf="submitted && messageForm.controls.categoryName.errors" class="error">
+        <div *ngIf="submitted && addCategoryForm.controls.categoryName.errors" class="error">
         </div>
         <input type="submit" value="Add Category" class="cta">
         <h5 *ngIf="success" style="color: green;">{{smsg.toUpperCase()}}</h5>
@@ -16,8 +16,7 @@
         <mat-spinner mode="determinate" value=75 diameter="30" strokeWidth="4" *ngIf="!categories">
         </mat-spinner>
         <tr *ngFor="let category of categories">
-            <td>
-                
+            <td *ngIf="category">
                 <a [title]="'View Products Under: '+category.catName">
                     {{category.catName | uppercase}}
                 </a>
@@ -36,8 +35,6 @@
         <mat-card *ngFor="let catProduct of catProducts" style="margin-top:2px;">
             <mat-card-header>
                 <mat-card-title>#{{catProduct.prodId}} {{catProduct.prodName}}</mat-card-title>
-                <!-- <mat-card-subtitle>{{product.price}} $/ {{product.quantity}} -->
-                <!-- </mat-card-subtitle> -->
             </mat-card-header>
             <mat-card-content>
                 <p>
