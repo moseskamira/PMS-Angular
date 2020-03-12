@@ -72,7 +72,6 @@ export class CategoryComponent implements OnInit {
   }
 
   getCatProducts(id: number) {
-    console.log("You Clicked "+id);
     this.dataService.getcategoryProducts(id).subscribe(
       catProdData=>{
         this.catProducts = catProdData;

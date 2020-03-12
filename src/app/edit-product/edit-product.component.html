@@ -1,16 +1,19 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="editProdDiv">
+    <mat-spinner mode="determinate" value=75 diameter="30" strokeWidth="4" *ngIf="!oldProduct">
+    </mat-spinner>
 
-    <form [formGroup]="editProductGroup" (ngSubmit)="onSubmit()" class="editProdForm">
+    <form [formGroup]="editProductGroup" (ngSubmit)="editCatProduct()" class="editProdForm" >
     
         <h5 *ngIf="success" >Valid Product Entries </h5>
         <label>Product Name:</label>
-        <input type="text" formControlName="prodName">
+        <input type="text" formControlName="prodName" value="{{oldProduct.prodName}}">
         <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
         <label>Product Description: </label>
-        <textarea formControlName="prodDescrip"></textarea>
+        <textarea formControlName="prodDescrip" value="{{oldProduct.prodDescrip}}"></textarea>
         <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
         <label>Product Image Url: </label>
-        <input type="text" formControlName="prodImageUrl">
+        <input type="text" formControlName="prodImageUrl" value="{{oldProduct.prodImageUrl}}">
         <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
         <input type="submit" value="Save" class="cta">
     
