@@ -13,10 +13,11 @@
 
 <div class="catList">
     <table class="table table-striped">
-        <mat-spinner mode="determinate" value=25 diameter="50" strokeWidth="4" *ngIf="!categories">
+        <mat-spinner mode="determinate" value=75 diameter="30" strokeWidth="4" *ngIf="!categories">
         </mat-spinner>
         <tr *ngFor="let category of categories">
             <td>
+                
                 <a [title]="'View Products Under: '+category.catName">
                     {{category.catName | uppercase}}
                 </a>
