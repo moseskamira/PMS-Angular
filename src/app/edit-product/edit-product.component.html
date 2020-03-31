@@ -7,16 +7,15 @@
     
         <h5 *ngIf="success" >Valid Product Entries </h5>
         <label for="prodName">Product Name:</label>
-        <input type="text" formControlName="prodName" value="{{oldProduct.prodName}}">
+        <input type="text" formControlName="prodName" required [(ngModel)]="oldProduct.prodName">
         <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
         <label for="prodDescrip">Product Description: </label>
-        <textarea formControlName="prodDescrip" value="{{oldProduct.prodDescrip}}"></textarea>
+        <textarea formControlName="prodDescrip" required [(ngModel)]="oldProduct.prodDescrip"></textarea>
         <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
         <label for="prodImageUrl">Product Image Url: </label>
-        <input type="text" formControlName="prodImageUrl" value="{{oldProduct.prodImageUrl}}">
+        <input type="text" formControlName="prodImageUrl" required [(ngModel)]="oldProduct.prodImageUrl">
         <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
         <input type="submit" value="Save" class="cta">
     
     </form>
-    
     </div>
