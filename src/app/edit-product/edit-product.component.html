@@ -3,19 +3,14 @@
 <div class="editProdDiv">
     <mat-spinner mode="determinate" value=75 diameter="30" strokeWidth="4" *ngIf="!oldProduct">
     </mat-spinner>
-    <form *ngIf="oldProduct" [formGroup]="editProductForm" (ngSubmit)="editCatProduct()" class="editProdForm" >
-    
+    <form *ngIf="oldProduct" [formGroup]="editProductForm" (ngSubmit)="editCatProduct()" class="editProdForm">
         <h5 *ngIf="success" >Valid Product Entries </h5>
         <label for="prodName">Product Name:</label>
         <input type="text" formControlName="prodName" required [(ngModel)]="oldProduct.prodName">
-        <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
         <label for="prodDescrip">Product Description: </label>
         <textarea formControlName="prodDescrip" required [(ngModel)]="oldProduct.prodDescrip"></textarea>
-        <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
         <label for="prodImageUrl">Product Image Url: </label>
         <input type="text" formControlName="prodImageUrl" required [(ngModel)]="oldProduct.prodImageUrl">
-        <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
         <input type="submit" value="Save" class="cta">
-    
     </form>
-    </div>
+</div>
