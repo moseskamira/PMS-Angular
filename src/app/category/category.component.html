@@ -12,23 +12,17 @@
 </div>
 
 <div class="catList">
-    <table class="table table-striped">
         <mat-spinner mode="determinate" value=75 diameter="30" strokeWidth="4" *ngIf="!categories">
         </mat-spinner>
-        <tr *ngFor="let category of categories">
-            <td *ngIf="category">
-                <a [title]="'View Products Under: '+category.catName">
-                    {{category.catName | uppercase}}
-                </a>
-            </td>
-            <td> 
-                <button mat-button (click)="getCatProducts(category.catId)" class="btn_edit">ViewProd</button>
-            </td>
-            <td> 
-                <button mat-button (click)="delCat(category.catId)" class="btn_del"><i class="fa fa-trash"></i></button>
-            </td>
-        </tr>
-    </table>
+            <table  *ngFor="let category of categories" class="catListUL">
+                <tr *ngIf="category" >  
+                    <td (click)="getCatProducts(category.catId)"> {{category.catName | uppercase}} </td>
+                    <td class="badge" style="text-align: right;"><span class="badge"><button mat-button 
+                        (click)="delCat(category.catId)">
+                        <i class="fa fa-trash"></i></button> </span> </td>
+                </tr>
+            </table>
+
 </div>
 <div class="catProds">
     <div>
