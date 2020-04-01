@@ -54,9 +54,9 @@ export class CategoryComponent implements OnInit {
     }
     this.category = new Category();
     this.category.catName = this.addCategoryForm.get('categoryName').value;
-    this.dataService.addCategory(this.category).subscribe(
-      (response) => console.log(response),
-    (error) => console.log(error));
+    this.dataService.addCategory(this.category).subscribe((response) => console.log(response),
+      (error) => console.log(error)
+      );
     this.success = true;
     this.smsg = "Category Successfully Added";
     this.reloadCategoryData();
@@ -64,8 +64,7 @@ export class CategoryComponent implements OnInit {
 
   delCat(id:number) {
     this.dataService.deleteCategory(id).subscribe(
-      catData=> {
-        console.log("Deleted Successfully");
+      ()=> {
         this.reloadCategoryData();
       }
     )
