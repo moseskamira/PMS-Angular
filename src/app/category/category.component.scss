@@ -1,68 +1,68 @@
 
 .catContainer {
-    width: 72%;
-    min-height: 100%;
-    margin: auto;
-    float: left;
-  }
+  width: 72%;
+  max-height: 100%;
+  margin: auto;
+  float: left;
+}
 
-  .reservedDiv {
-    width: 28%;
-    min-height: 100%;
-    margin: auto;
-    float: right;
-
-  }
+.reservedDiv {
+  width: 28%;
+  max-height: 100%;
+  margin: auto;
+  float: right;
+}
   
 .catList {
-    width: 40%;
-    height: auto;
-    margin-right: 1%;
-    float: left;
-    padding: 2px 2px;
-    border-radius: 1em;
-  }
-  .catListUL {
-    margin: 0 0 1em 0;
-    padding: 0;
-    width: 98%;
-    border: 2px solid blue;
-    border-radius: 1em;
-  }
+  width: 40%;
+  height: auto;
+  margin-right: 1%;
+  float: left;
+  padding: 2px 2px;
+  border-radius: 1em;
+}
 
-  .catListUL td {
-    cursor: pointer;
-    position: relative;
-    left: 0;
-    background-color: #EEE;
-    margin: 1px;
-    height: 1em;
-    border-radius: 4px;
-  }
-  .catListUL td:hover {
-    color: #607D8B;
-    background-color: #DDD;
-    left: .1em;
-  }
-  .badge {
-    font-size: small;
-    color: white;
-    background-color:#405061;
-    line-height: 1em;
-    height: 1.8em;
-    border-radius: 4px 0 0 4px;
-  }
+.catListUL {
+  margin: 0 0 .5em 0;
+  padding: 0;
+  width: 98%;
+  border: 2px solid blue;
+  border-radius: 1em;
+}
 
+.catListUL td {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: 1px;
+  height: 1em;
+  border-radius: 4px;
+}
 
-  
+.catListUL td:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+
+.badge {
+  font-size: small;
+  color: white;
+  background-color:#405061;
+  line-height: 1em;
+  height: 1.8em;
+  border-radius: 4px 0 0 4px;
+}
+
 .catProds {
-    float: left;
-    width: 40%;
-    border-radius: 1em;
-    margin-left: 2px;
-    padding: 2px 2px;
-    height: auto;
-  }
+  float: left;
+  width: 40%;
+  border-radius: 1em;
+  margin-left: 2px;
+  padding: 2px 2px;
+  height: auto;
+}
 
 .btn_edit {
   background-color: DodgerBlue;
@@ -73,16 +73,15 @@
   cursor: pointer;
 }
 
-
 .btn:hover {
   background-color: RoyalBlue;
 }
 
 .btn_del {
-    background-color: rgb(226, 11, 11);
-    border: none;
-    color: white;
-    padding: 2px 2px;
-    font-size: 16px;
-    cursor: pointer;
-  }
+  background-color: rgb(226, 11, 11);
+  border: none;
+  color: white;
+  padding: 2px 2px;
+  font-size: 16px;
+  cursor: pointer;
+}

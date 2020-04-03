@@ -14,11 +14,8 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AddProductComponent } from './add-product/add-product.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule,
-  MatIconModule,
-  MatCardModule,
-  MatButtonModule,
-  MatProgressSpinnerModule } from '@angular/material';
+import { MatToolbarModule,MatIconModule,MatCardModule,MatButtonModule,MatProgressSpinnerModule } 
+from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FooterComponent } from './footer/footer.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
