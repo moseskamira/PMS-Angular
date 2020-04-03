@@ -25,8 +25,8 @@
 
 </div>
 <div class="catProds">
-    <div>
-        <mat-card *ngFor="let catProduct of catProducts" style="margin-top:2px;">
+    
+        <mat-card *ngFor="let catProduct of catProducts">
             <mat-card-header>
                 <mat-card-title>#{{catProduct.prodId}} {{catProduct.prodName}}</mat-card-title>
             </mat-card-header>
@@ -42,11 +42,11 @@
                 <!-- <img style="height:100%; width: 100%;" src="{{ product.imageUrl }}" /> -->
             </mat-card-content>
         </mat-card>
-    </div>
-    <div>
-        <button (click) ="loadPreviousPage()" mat-button> Prev</button>
-        <button (click) ="loadNextPage()" mat-button> Next</button>
-    </div>
+        <div class="prevNexBtn">
+            <button (click) ="loadPreviousPage()" mat-button> Prev</button>
+            <button (click) ="loadNextPage()" mat-button> Next</button>
+        </div>
+        
 </div>
 </div>
 
