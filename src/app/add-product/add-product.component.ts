@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { Product } from '../shared/models/product';
 import { DataService } from '../data.service';
+import {  FileUploader } from 'ng2-file-upload/ng2-file-upload';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-add-product',
@@ -14,27 +16,47 @@ export class AddProductComponent implements OnInit {
   success = false;
   product: Product;
   categoryId: number;
+
+  selectedFile: File;
+  imageUrl: any;
+
   constructor(private formBuilder: FormBuilder, private dataService: DataService) {
     this.productGroup = this.formBuilder.group({
       catId: ['', Validators.required],
       prodName: ['', Validators.required],
       prodDescrip: ['', Validators.required],
-      prodImageUrl: ['', Validators.required],
     })
    }
-   
+
+   onFileChanged(event) {
+     if (event.target.files && event.target.files[0]) {
+      this.selectedFile = event.target.files[0];
+      console.log("SELECTEDFILE"+this.selectedFile);
+      const reader = new FileReader();
+      reader.onload = (event: ProgressEvent) => {
+      this.imageUrl = (<FileReader>event.target).result;
+      console.log("IMAGEURL"+this.imageUrl);
+    }
+      reader.readAsDataURL(event.target.files[0]);
+    }
+    
+  }
+
   onSubmit() {
     this.submitted = true;
 
     if(this.productGroup.invalid) {
+      console.log("Invalid Data Submission");
       return;
-
     }
     this.product = new Product();
+    console.log("DATA is Valid");
     
     this.product.prodName = this.productGroup.get('prodName').value;
     this.product.prodDescrip = this.productGroup.get('prodDescrip').value;
-    this.product.prodImageUrl = this.productGroup.get('prodImageUrl').value;
+    this.product.prodImageUrl = this.imageUrl.toString;
+    console.log("THIS IS PRODIMAGEURL", this.product.prodImageUrl);
+    // this.product.prodImageUrl = this.productGroup.get('prodImageUrl').value;
     this.categoryId = this.productGroup.get('catId').value;
 
     this.dataService.addProduct(this.categoryId, this.product).subscribe(
@@ -44,6 +66,7 @@ export class AddProductComponent implements OnInit {
     }
     
   ngOnInit() {
+
   }
 
 }

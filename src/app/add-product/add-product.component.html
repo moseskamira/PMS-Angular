@@ -15,11 +15,8 @@
     <textarea formControlName="prodDescrip"></textarea>
     <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
 
-    
-    <label>Product Image Url: </label>
-    <input type="text" formControlName="prodImageUrl">
-    <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
-
+    <input type="file" (change)="onFileChanged($event)" #fileInput>
+    <img [src]="imageUrl">
     
     <input type="submit" value="Add Product" class="cta">
 
