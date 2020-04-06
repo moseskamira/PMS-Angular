@@ -1,22 +1,51 @@
 
-<div class="addProdDiv">
+<div class="container">
 
 <form [formGroup]="productGroup" (ngSubmit)="onSubmit()" class="addProdForm">
-
     <h5 *ngIf="success" >Valid Product Entries </h5>
-    <label>Category Id:</label>
-    <input type="text" formControlName="catId">
-    <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
-    <label>Product Name:</label>
-    <input type="text" formControlName="prodName">
-    <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
-    <label>Product Description: </label>
-    <textarea formControlName="prodDescrip"></textarea>
-    <!-- <div *ngIf="submitted && productGroup.controls.categoryName.errors" class="error"></div> -->
-    <input type="file" (change)="onFileChanged($event)" #fileInput>
-    <img [src]="imageUrl">
-    <input type="submit" value="Add Product" class="cta">
-
+    <div class="row">
+        <div class="col-25">
+            <label>Category Id:</label>
+        </div>
+        <div class="col-75">
+            <input type="text" formControlName="catId">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <label>Product Name:</label>
+        </div>
+        <div class="col-75">
+            <input type="text" formControlName="prodName">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <label>Product Description: </label>
+        </div>
+        <div class="col-75">
+            <textarea formControlName="prodDescrip"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <!-- <label>Category Id:</label> -->
+        </div>
+        <div class="col-75">
+            <input type="file" (change)="onFileChanged($event)" #fileInput>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <!-- <label>Category Id:</label> -->
+        </div>
+        <div class="col-75">
+            <img [src]="imageUrl">
+        </div>
+    </div>
+    <div class="row">
+       <input type="submit" value="Add Product">
+    </div>
 </form>
 
 </div>
