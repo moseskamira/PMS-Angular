@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { Product } from '../shared/models/product';
 import { DataService } from '../data.service';
-import {  FileUploader } from 'ng2-file-upload/ng2-file-upload';
-import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-add-product',
@@ -24,7 +22,7 @@ export class AddProductComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private dataService: DataService) {
     this.productGroup = this.formBuilder.group({
-      catId: ['', Validators.required],
+      catId: ['0', Validators.required],
       prodName: ['', Validators.required],
       prodDescrip: ['', Validators.required],
     })
@@ -80,7 +78,5 @@ export class AddProductComponent implements OnInit {
       }
     )
   }
-
-
 
 }

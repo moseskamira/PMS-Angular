@@ -8,11 +8,11 @@
     <h5 *ngIf="success" >Valid Product Entries </h5>
     <div class="row">
         <div class="col-25">
-            <label>Select Category:</label>
+            <label>Product Category:</label>
         </div>
         <div class="col-75">
             <select formControlName="catId">
-                
+                <option value="0">Select Product Category</option>
                 <option *ngFor="let category of categories" [ngValue]="category.catId">
                   {{category.catName}}
                 </option>

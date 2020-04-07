@@ -1,21 +1,18 @@
 
 .catContainer {
   width: 76%;
-  min-height: 100%;
   margin: auto;
   float: left;
 }
 
 .reservedDiv {
   width: 20%;
-  min-height: 100%;
   margin: auto;
   float: right;
 }
   
 .catList {
   width: 30%;
-  height: auto;
   margin-right: 1%;
   float: left;
   padding: 2px 2px;
@@ -53,6 +50,7 @@
   margin-left: 2px;
   margin-bottom: 2px;
   padding: 2px 2px;
+  height: auto;
 }
 
 .prodDetails {
