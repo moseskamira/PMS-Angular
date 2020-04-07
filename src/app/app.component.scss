@@ -3,7 +3,7 @@
 body, html {
   min-height: 100%;
   width: 100%;
-  margin: 0 auto;
+  margin: auto;
 }
 
 body {
@@ -13,7 +13,7 @@ body {
 
 section {
   width: 90%;
-  margin: 0 auto;
+  margin: auto;
 }
 
 @media screen and (max-width: 575px) {
@@ -21,7 +21,4 @@ section {
     display: none;
     visibility: hidden;
   }
-
 }
-
-
