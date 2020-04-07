@@ -20,6 +20,8 @@ export class AddProductComponent implements OnInit {
   selectedFile: File;
   imageUrl: any;
 
+  categories: Object;
+
   constructor(private formBuilder: FormBuilder, private dataService: DataService) {
     this.productGroup = this.formBuilder.group({
       catId: ['', Validators.required],
@@ -66,7 +68,19 @@ export class AddProductComponent implements OnInit {
     }
     
   ngOnInit() {
+    this.fetchCategories();
 
   }
+
+  fetchCategories() {
+    this.dataService.getCategories().subscribe(
+      catData=> {
+        this.categories = catData;
+        console.log("CATEGORIES"+this.categories);
+      }
+    )
+  }
+
+
 
 }
