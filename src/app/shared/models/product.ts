@@ -3,5 +3,6 @@ export class Product {
     prodDescrip: string;
     prodImageUrl: string;
     prodLike: string;
+    unitPrice: number;
 
 }

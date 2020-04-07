@@ -1,60 +1,71 @@
 
-<div style="align-self: center;">
-
 
 <div class="container">
-
-<form [formGroup]="productGroup" (ngSubmit)="onSubmit()" class="addProdForm">
-    <h5 *ngIf="success" >Valid Product Entries </h5>
-    <div class="row">
-        <div class="col-25">
-            <label>Product Category:</label>
+    <form [formGroup]="productGroup" (ngSubmit)="onSubmit()" class="addProdForm">
+        <h5 *ngIf="success" >Valid Product Entries </h5>
+        <div class="row" *ngIf="successMsg">
+            <div class="col-25">
+                <!-- <label>Unit Price: </label> -->
+            </div>
+            <div class="col-75">
+                <p class="alert-success">
+                    <strong>Product Added Successfully !</strong>
+                </p>
+            </div>
         </div>
-        <div class="col-75">
-            <select formControlName="catId">
-                <option value="0">Select Product Category</option>
-                <option *ngFor="let category of categories" [ngValue]="category.catId">
-                  {{category.catName}}
-                </option>
-              </select>
+        <div class="row">
+            <div class="col-25">
+                <label>Product Category:</label>
+            </div>
+            <div class="col-75" *ngIf="categories">
+                <select formControlName="catId">
+                    <option value="0">Select Product Category</option>
+                    <option *ngFor="let category of categories" [ngValue]="category.catId">
+                        {{category.catName}}
+                    </option>
+                </select>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-25">
-            <label>Product Name:</label>
+        <div class="row">
+            <div class="col-25">
+                <label>Product Name:</label>
+            </div>
+            <div class="col-75">
+                <input type="text" formControlName="prodName">
+            </div>
         </div>
-        <div class="col-75">
-            <input type="text" formControlName="prodName">
+        <div class="row">
+            <div class="col-25">
+                <label>Unit Price: </label>
+            </div>
+            <div class="col-75">
+                <input type="number" formControlName="unitPrice">
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-25">
-            <label>Product Description: </label>
+        <div class="row">
+            <div class="col-25">
+                <label>Product Description: </label>
+            </div>
+            <div class="col-75">
+                <textarea formControlName="prodDescrip"></textarea>
+            </div>
         </div>
-        <div class="col-75">
-            <textarea formControlName="prodDescrip"></textarea>
+        <div class="row">
+            <div class="col-25">
+            </div>
+            <div class="col-75">
+                <input type="file" (change)="onFileChanged($event)" #fileInput>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-25">
-            <!-- <label>Category Id:</label> -->
+        <div class="row">
+            <div class="col-25">
+            </div>
+            <div class="col-75">
+                <img [src]="imageUrl">
+            </div>
         </div>
-        <div class="col-75">
-            <input type="file" (change)="onFileChanged($event)" #fileInput>
+        <div class="row">
+            <input type="submit" value="Add Product">
         </div>
-    </div>
-    <div class="row">
-        <div class="col-25">
-            <!-- <label>Category Id:</label> -->
-        </div>
-        <div class="col-75">
-            <img [src]="imageUrl">
-        </div>
-    </div>
-    <div class="row">
-       <input type="submit" value="Add Product">
-    </div>
-</form>
-
-</div>
+    </form>
 </div>

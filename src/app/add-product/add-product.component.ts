@@ -11,20 +11,21 @@ import { DataService } from '../data.service';
 export class AddProductComponent implements OnInit {
   productGroup: FormGroup;
   submitted = false;
-  success = false;
   product: Product;
   categoryId: number;
 
   selectedFile: File;
   imageUrl: any;
-
   categories: Object;
+  successMsg: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private dataService: DataService) {
     this.productGroup = this.formBuilder.group({
       catId: ['0', Validators.required],
       prodName: ['', Validators.required],
       prodDescrip: ['', Validators.required],
+      unitPrice: ['', Validators.required],
+      
     })
    }
 
@@ -54,6 +55,8 @@ export class AddProductComponent implements OnInit {
     
     this.product.prodName = this.productGroup.get('prodName').value;
     this.product.prodDescrip = this.productGroup.get('prodDescrip').value;
+    this.product.unitPrice = this.productGroup.get('unitPrice').value;
+    console.log("UNITPRICE"+this.product.unitPrice);
     this.product.prodImageUrl = this.imageUrl.toString;
     console.log("THIS IS PRODIMAGEURL", this.product.prodImageUrl);
     // this.product.prodImageUrl = this.productGroup.get('prodImageUrl').value;
@@ -62,7 +65,7 @@ export class AddProductComponent implements OnInit {
     this.dataService.addProduct(this.categoryId, this.product).subscribe(
       (response) => console.log(response),
       (error) => console.log(error));
-      this.success = true;
+      this.successMsg = true;
     }
     
   ngOnInit() {
