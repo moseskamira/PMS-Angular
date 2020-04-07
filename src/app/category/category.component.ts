@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Category } from '../shared/models/category';
-import { takeUntil } from 'rxjs/operators';
-import { HttpResponse } from '@angular/common/http';
 
 
 @Component({
