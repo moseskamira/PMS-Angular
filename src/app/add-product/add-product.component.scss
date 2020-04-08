@@ -15,6 +15,14 @@ input[type=text], select, textarea {
   border-radius: 4px;
   resize: vertical;
 }
+
+input[type=number], select, textarea {
+  width: 100%;
+  padding: 6px 6px 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
   
 label {
   padding: 6px 6px 6px 0;

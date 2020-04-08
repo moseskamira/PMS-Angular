@@ -20,6 +20,8 @@ from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FooterComponent } from './footer/footer.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { CloudinaryModule, CloudinaryConfiguration } from '@cloudinary/angular-5.x';
+import { Cloudinary } from 'cloudinary-core';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,8 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     MatCardModule,
     FileUploadModule,
     MatProgressSpinnerModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    CloudinaryModule.forRoot({Cloudinary}, { cloud_name: 'dfejj9f8i' } as CloudinaryConfiguration)
   ],
   providers: [],
   bootstrap: [AppComponent]

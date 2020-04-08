@@ -33,7 +33,6 @@ export class EditProductComponent implements OnInit {
       this.prodId = Number.parseInt(params.get('prodId'));
       this.categoryId = Number.parseInt(params.get('catId')); 
       this.getSingleProduct();
-      
       });
   }
 
@@ -54,6 +53,7 @@ export class EditProductComponent implements OnInit {
     this.dataService.editProduct(this.categoryId, this.prodId, this.editedProduct).subscribe(
       respData=>{
         console.log(respData);
+        window.alert("Successfully Edited Product");
       });
     this.editProductForm.reset();
   }
