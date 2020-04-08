@@ -77,7 +77,6 @@ export class CategoryComponent implements OnInit {
   }
 
   public loadPreviousPage() {
-    
     console.log("Clicked Previous Button");
 
     // if (this.apiService.prev !== undefined && this.apiService.prev !== '') {
@@ -102,12 +101,14 @@ export class CategoryComponent implements OnInit {
   }
 
   delProd(cId:number, pId: number) {
-    this.dataService.deleteProduct(cId, pId).subscribe(
-      catData=> {
-        console.log("Deleted Successfully");
-        this.fetchAllProducts();
-      }
-    )
+    if(confirm("Are You Sure")) {
+      this.dataService.deleteProduct(cId, pId).subscribe(
+        catData=> {
+          console.log("Deleted Successfully");
+          this.fetchAllProducts();
+        }
+      )
+    }
   }
 
 }

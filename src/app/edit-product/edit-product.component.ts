@@ -22,6 +22,7 @@ export class EditProductComponent implements OnInit {
     private dataService: DataService) { 
     this.editProductForm = this.formBuilder.group({
       prodName: ['', Validators.required],
+      unitPrice: ['', Validators.required],
       prodDescrip: ['', Validators.required],
       prodImageUrl: ['', Validators.required],
     })
@@ -47,6 +48,7 @@ export class EditProductComponent implements OnInit {
   editCatProduct() {
     this.editedProduct = new Product();
     this.editedProduct.prodName = this.editProductForm.get('prodName').value;
+    this.editedProduct.unitPrice = this.editProductForm.get('unitPrice').value;
     this.editedProduct.prodDescrip = this.editProductForm.get('prodDescrip').value;
     this.editedProduct.prodImageUrl = this.editProductForm.get('prodImageUrl').value;
     this.dataService.editProduct(this.categoryId, this.prodId, this.editedProduct).subscribe(

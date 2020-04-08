@@ -7,6 +7,8 @@
         <h5 *ngIf="success" >Valid Product Entries </h5>
         <label for="prodName">Product Name:</label>
         <input type="text" formControlName="prodName" required [(ngModel)]="oldProduct.prodName">
+        <!-- <label for="prodName">Unit Price:</label>
+        <input type="text" formControlName="unitPrice" required [(ngModel)]="oldProduct.unitPrice"> -->
         <label for="prodDescrip">Product Description: </label>
         <textarea formControlName="prodDescrip" required [(ngModel)]="oldProduct.prodDescrip"></textarea>
         <label for="prodImageUrl">Product Image Url: </label>
