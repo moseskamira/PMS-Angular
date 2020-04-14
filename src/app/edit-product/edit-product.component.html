@@ -13,7 +13,7 @@
         <textarea formControlName="prodDescrip" required [(ngModel)]="oldProduct.prodDescrip"></textarea>
         
         <label for="prodImageUrl">Product Image Url: </label>
-        <input type="text" formControlName="prodImageUrl" required [(ngModel)]="oldProduct.prodImageUrl">
+        <input type="text" formControlName="prodImageUrl" [(ngModel)]="oldProduct.prodImageUrl">
         <input type="submit" value="Save" class="cta">
     </form>
 </div>

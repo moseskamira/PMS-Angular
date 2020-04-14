@@ -31,7 +31,7 @@
                     {{catProduct.prodDescrip}}<br/>
                     <img style="height:100%; width: 100%;" src="{{catProduct.prodImageUrl}}" />
                     <mat-card-actions>
-                        <button mat-button [routerLink]="['/editProduct', catProduct.prodCat.catId, 'product', catProduct.prodId]" 
+                        <button mat-button [routerLink]="['/editProduct/', catProduct.prodCat.catId, 'product', catProduct.prodId]" 
                         class="btn_edit">Edit</button>&nbsp;&nbsp;
                         <button mat-button (click)="delProd(catProduct.prodCat.catId, catProduct.prodId)" class="btn_del">Del</button>
                     </mat-card-actions>
