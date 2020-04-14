@@ -5,7 +5,6 @@
         <h5 *ngIf="success" >Valid Product Entries </h5>
         <div class="row" *ngIf="successMsg">
             <div class="col-25">
-                <!-- <label>Unit Price: </label> -->
             </div>
             <div class="col-75">
                 <p class="alert-success">
@@ -31,15 +30,18 @@
                 <label>Product Name:</label>
             </div>
             <div class="col-75">
-                <input type="text" formControlName="prodName">
+                <input type="text" required minlength="4" formControlName="prodName">
             </div>
+            <!-- <div *ngIf="prodName.errors.required">
+                Product Name is required.
+            </div> -->
         </div>
         <div class="row">
             <div class="col-25">
                 <label>Unit Price: </label>
             </div>
             <div class="col-75">
-                <input type="number" formControlName="unitPrice">
+                <input type="number" required formControlName="unitPrice">
             </div>
         </div>
         <div class="row">
@@ -47,14 +49,14 @@
                 <label>Product Description: </label>
             </div>
             <div class="col-75">
-                <textarea formControlName="prodDescrip"></textarea>
+                <textarea required minlength="10" formControlName="prodDescrip"></textarea>
             </div>
         </div>
         <div class="row">
             <div class="col-25">
             </div>
             <div class="col-75">
-                <input type="file" (change)="onFileChanged($event)" #fileInput>
+                <input type="file" ng2FileSelect [uploader]="uploader" accept="image/*;capture=camera" />
             </div>
         </div>
         <div class="row">
