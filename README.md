@@ -1,6 +1,21 @@
 # Pms
 
+The Product Management System (PMS) is an Angular implemented product with Typescripe language.
+
+The product is intended to consume Back-end points implemented.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
+
+The PMS enables a user to perform the following functions:
+
+- Add product category.
+- Delete product category.
+- Add product to individual category.
+- Update product.
+- Delete product.
+- Fetch all products in the system.
+- Fetch products per category.
+- Fetch a single product.
 
 ## Development server
 
@@ -22,6 +37,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Note
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The PMS is still under development
