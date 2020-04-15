@@ -1,8 +1,6 @@
 
-
 <div class="container">
     <form [formGroup]="productGroup" (ngSubmit)="onSubmit()" class="addProdForm">
-        <h5 *ngIf="successMsg" >Valid Product Entries </h5>
         <div class="row" *ngIf="successMsg">
             <div class="col-25">
             </div>
@@ -59,13 +57,13 @@
                 <input type="file" ng2FileSelect [uploader]="imageUploader" accept="image/*;capture=camera" />
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-25">
             </div>
             <div class="col-75">
                 <img [src]="imageUrl">
             </div>
-        </div>
+        </div> -->
         <div class="row">
             <input type="submit" value="Add Product">
         </div>
