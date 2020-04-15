@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Product } from '../shared/models/product';
 import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
@@ -10,13 +10,14 @@ import { DataService } from '../data.service';
   styleUrls: ['./edit-product.component.scss']
 })
 export class EditProductComponent implements OnInit {
+  @Input() model: Product;
   editProductForm: FormGroup;
   submitted = false;
   success = false;
   categoryId: number;
   prodId: number;
   editedProduct: Product;
-  oldProduct: Object;
+  oldProduct: Product;
 
   constructor(private formBuilder: FormBuilder, private route: ActivatedRoute,
     private dataService: DataService) { 
@@ -24,7 +25,7 @@ export class EditProductComponent implements OnInit {
       prodName: ['', Validators.required],
       unitPrice: ['', Validators.required],
       prodDescrip: ['', Validators.required],
-      prodImageUrl: ['', Validators.required],
+      prodImageUrl: [''],
     })
   }
 

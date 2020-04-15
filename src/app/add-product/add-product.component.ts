@@ -14,10 +14,9 @@ export class AddProductComponent implements OnInit {
   submitted = false;
   product: Product;
   categoryId: number;
-  imageUrl: any;
+  imageUrl: string;
   categories: Object;
   successMsg: boolean = false;
-
   imageUploader: CloudinaryUploader = new CloudinaryUploader(
     new CloudinaryOptions({ cloudName: 'dfejj9f8i', uploadPreset: 'usguhe1a' })
   );
@@ -27,7 +26,7 @@ export class AddProductComponent implements OnInit {
       catId: [0, Validators.required],
       prodName: ['', Validators.required, Validators.minLength(4)],
       prodDescrip: ['', Validators.required],
-      // unitPrice: [, Validators.required],
+      unitPrice: [, Validators.required],
     });
   }
 
@@ -71,7 +70,7 @@ export class AddProductComponent implements OnInit {
     this.product.prodImageUrl = myimgurl;
     this.product.prodName = this.productGroup.get('prodName').value;
     this.product.prodDescrip = this.productGroup.get('prodDescrip').value;
-    // this.product.unitPrice = Number.parseInt(this.productGroup.get('unitPrice').value);
+    this.product.unitPrice = Number.parseInt(this.productGroup.get('unitPrice').value);
     console.log("UNITPRICE"+this.product.unitPrice);
     this.categoryId = this.productGroup.get('catId').value;
     this.dataService.addProduct(this.categoryId, this.product).subscribe(
