@@ -17,20 +17,17 @@ The PMS enables a user to perform the following functions:
 - Fetch products per category.
 - Fetch a single product.
 
-### App URL : 
-- https://pms-ug.herokuapp.com/home
+### How To Test The App
 
-### Development server
+#### OnLine
+- Click on the url: https://pms-ug.herokuapp.com/home
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-### Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-### Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#### Locally
+- Clone the repository at https://github.com/moseskamira/PMS-Angular.git 
+- Open the project with a suitable IDE of your choice though preferably VScode.
+- Issue the command ng serve or ng serve -o or ng serve -open to run the application.
+- Navigate to http://localhost:4200/home
+- Wait for the application to load.
 
 ### Running unit tests
 
