@@ -12,8 +12,6 @@
   padding: 1px;
 }
 
-
-
 input[type=text], select, textarea {
     width: 90%;
     padding: 6px 6px 6px 0;
@@ -31,8 +29,8 @@ input[type=text], select, textarea {
   }
     
   label {
-    padding: 6px 6px 6px 0;
     display: inline-block;
+    width: 90%;
   }
   
   input[type=submit] {
