@@ -20,6 +20,7 @@ from '@angular/material';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { FooterComponent } from './footer/footer.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     ProductComponent,
     AddProductComponent,
     FooterComponent,
-    EditProductComponent
+    EditProductComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,

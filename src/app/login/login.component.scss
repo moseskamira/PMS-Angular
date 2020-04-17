@@ -1,0 +1,49 @@
+
+
+.loginMainDiv {
+  background-color: #DDD;
+  width: 100%;
+  border-radius: 1em;
+
+}
+
+.innerDiv {
+  margin: .5em;
+  padding: 1px;
+}
+
+
+
+input[type=text], select, textarea {
+    width: 90%;
+    padding: 6px 6px 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  input[type=password], select, textarea {
+    width: 90%;
+    padding: 6px 6px 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+    
+  label {
+    padding: 6px 6px 6px 0;
+    display: inline-block;
+  }
+  
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px 6px;
+    border: none;
+    border-radius: 2em;
+    cursor: pointer;
+  }
+    
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }

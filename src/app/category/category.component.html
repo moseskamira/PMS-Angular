@@ -13,7 +13,7 @@
         <mat-spinner mode="determinate" value=75 diameter="30" strokeWidth="4" *ngIf="!categories"></mat-spinner>
         <table  *ngFor="let category of categories" class="catListUL">
             <tr *ngIf="category" >  
-                <td width="85%" (click)="getCatProducts(category.catId)"> {{category.catName | uppercase}} </td>
+                <td width="85%" (click)="getCatProducts(category.catId)" style="font-size: 12px;"> {{category.catName | uppercase}} </td>
                 <td width="15%" class="badge" style="text-align: right;"><span class="badge"><button mat-button 
                     (click)="delCat(category.catId)">
                     <i class="fa fa-trash"></i></button> </span> 
@@ -22,30 +22,39 @@
         </table>
     </div>
     <div class="catProds">
-        <mat-card *ngFor="let catProduct of catProducts">
-            <mat-card-header>
-                <mat-card-title>{{catProduct.prodName}}</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-                <p>
-                    {{catProduct.prodDescrip}}<br/>
-                    <img style="height:100%; width: 100%;" src="{{catProduct.prodImageUrl}}" />
-                    <mat-card-actions>
-                        <button mat-button [routerLink]="['/editProduct/', catProduct.prodCat.catId, 'product', catProduct.prodId]" 
-                        class="btn_edit">Edit</button>&nbsp;&nbsp;
-                        <button mat-button (click)="delProd(catProduct.prodCat.catId, catProduct.prodId)" class="btn_del">Del</button>
-                    </mat-card-actions>
-                </p>
-            </mat-card-content>
-        </mat-card>
-        <div class="prevNexBtn">
-            <button (click) ="loadPreviousPage()" mat-button> Prev</button>
-            <button (click) ="loadNextPage()" mat-button> Next</button>
+        <div class="prodList" style="overflow:scroll; height:400px;">
+            <mat-card *ngFor="let catProduct of catProducts">
+                <mat-card-header>
+                    <mat-card-title>{{catProduct.prodName}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>
+                        {{catProduct.prodDescrip}}<br/>
+                        <img style="height:100%; width: 100%;" src="{{catProduct.prodImageUrl}}" />
+                        <mat-card-actions>
+                            <button mat-button [routerLink]="['/editProduct/', catProduct.prodCat.catId, 'product', catProduct.prodId]" 
+                            class="btn_edit">Edit</button>&nbsp;&nbsp;
+                            <button mat-button (click)="delProd(catProduct.prodCat.catId, catProduct.prodId)" class="btn_del">Del</button>
+                        </mat-card-actions>
+                    </p>
+                </mat-card-content>
+            </mat-card>
+            <div class="prevNexBtn">
+                <button (click) ="loadPreviousPage()" mat-button> Prev</button>
+                <button (click) ="loadNextPage()" mat-button> Next</button>
+            </div>
+
+
         </div>
+        <div class="prodDetails">
+            <p> Detail Section </p>
+        </div>
+        
     </div>
+    
 </div>
 
 <div class="reservedDiv">
-    <p> This Section Is Reserved For Future Use </p>
+    <app-login></app-login>
     
 </div>
