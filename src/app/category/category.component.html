@@ -41,7 +41,7 @@
             </mat-card>
         </div>
         <div class="prodDetails" *ngIf="detailedProd">
-           <p>Id: {{detailedProd.prodId}}</p>
+           <!-- <p>Id: {{detailedProd.prodId}}</p> -->
            <p> Name: {{detailedProd.prodName}}</p>
            <img style="height:100%; width: 100%;" src="{{detailedProd.prodImageUrl}}">
            <p> Description: {{detailedProd.prodDescrip}}</p>
@@ -49,5 +49,6 @@
     </div>
 </div>
 <div class="reservedDiv">
+
     <app-login></app-login>
 </div>
