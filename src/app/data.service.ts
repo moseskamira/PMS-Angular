@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { Category } from './shared/models/category';
 import {  throwError } from 'rxjs';
 import { retry, catchError, tap } from 'rxjs/operators'
-import { Product } from './shared/models/product';
 import { Message } from './shared/models/message';
 
 
@@ -13,37 +12,9 @@ import { Message } from './shared/models/message';
   providedIn: 'root'
 })
 export class DataService {
-
-  public first: string = "";  
-  public prev: string = "";  
-  public next: string = "";  
-  public last: string = "";
-
   body: string;
   baseUrl: string = "https://online-shopping-api.herokuapp.com/onlineshopping";
-
   constructor(private http: HttpClient) { }
-
-  parseLinkHeader(header) {
-    if (header.length == 0) {
-      return ;
-    }
-
-    let parts = header.split(',');
-    var links = {};
-    parts.forEach( p => {
-      let section = p.split(';');
-      var url = section[0].replace(/<(.*)>/, '$1').trim();
-      var name = section[1].replace(/rel="(.*)"/, '$1').trim();
-      links[name] = url;
-
-    });
-
-    this.first  = links["first"];
-    this.last   = links["last"];
-    this.prev   = links["prev"];
-    this.next   = links["next"]; 
-  }
 
   handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error!';
@@ -83,18 +54,15 @@ export class DataService {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin':'*'
     }); 
-    
     return this.http.delete(this.baseUrl+"/category/"+catId,
     {responseType: 'text', headers});
-
   }
 
   updateCategory(id: number, value: any): Observable<any> {
     const headers = new HttpHeaders({ 
       'Content-Type': 'text/plain',
       'Access-Control-Allow-Origin':'*'
-    }
-    ); 
+    }); 
     return this.http.put(this.baseUrl+"/category/"+id, value,
     {responseType: 'json', headers});
   }
@@ -122,16 +90,18 @@ export class DataService {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin':'*'
     });
-    return this.http.get(this.baseUrl+'/category/product',{responseType: 'json', headers}).pipe(catchError(this.handleError));
+    return this.http.get(this.baseUrl+'/category/product',{responseType: 'json', 
+    headers}).pipe(catchError(this.handleError));
   }
 
-  addProduct(categoryId: number, newProduct: Product): Observable<any> {
+  addProduct(categoryId: number, newProduct: any): Observable<any> {
     const headers = new HttpHeaders({ 
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin':'*'
     });
     this.body = JSON.stringify(newProduct);
-    return this.http.post(this.baseUrl+"/category/"+categoryId+"/product",newProduct,{responseType: 'json', headers});
+    return this.http.post(this.baseUrl+"/category/"+categoryId+"/product"
+    ,newProduct,{responseType: 'json', headers});
   }
 
   deleteProduct(catId: number, prodId: number): Observable<any> {
@@ -139,11 +109,11 @@ export class DataService {
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin':'*'
     }); 
-    return this.http.delete(this.baseUrl+"/category/"+catId+"/product/"+prodId,{responseType: 'text', headers});
-
+    return this.http.delete(this.baseUrl+"/category/"+catId+"/product/"+prodId,
+    {responseType: 'text', headers});
   }
 
-  editProduct(catId: number, prodId: number, editedProd: Product): Observable<any> {
+  editProduct(catId: number, prodId: number, editedProd: any): Observable<any> {
     const headers = new HttpHeaders({ 
       'Content-Type': 'application/json',
       'Access-Control-Allow-Origin':'*'
@@ -171,7 +141,5 @@ export class DataService {
     return this.http.post(this.baseUrl+"/sendNotification",autoReply,
     {responseType: 'json', headers});
   }
-
-
 
 }

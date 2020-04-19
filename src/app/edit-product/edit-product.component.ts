@@ -17,9 +17,9 @@ export class EditProductComponent implements OnInit {
   categoryId: number;
   prodId: number;
   editedProduct: Product;
-  oldProduct: Product;
+  oldProduct: any;
 
-  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute,
+  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute,private router:Router,
     private dataService: DataService) { 
     this.editProductForm = this.formBuilder.group({
       prodName: ['', Validators.required],
@@ -27,22 +27,15 @@ export class EditProductComponent implements OnInit {
       prodDescrip: ['', Validators.required],
       prodImageUrl: [''],
     })
+
+    console.log("ROUTER INFO "+this.router.getCurrentNavigation().extras.state);
   }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.prodId = Number.parseInt(params.get('prodId'));
-      this.categoryId = Number.parseInt(params.get('catId')); 
-      this.getSingleProduct();
-      });
-  }
-
-  getSingleProduct() {
-    this.dataService.getSingleProduct(this.categoryId, this.prodId).subscribe(queryResp=>{
-      this.oldProduct = queryResp;
-      console.log(this.oldProduct);
-    });
-
+    this.oldProduct = history.state;
+    this.categoryId = Number.parseInt(this.oldProduct.prodCat.catId);
+    this.prodId = Number.parseInt(this.oldProduct.prodId);
+    console.log("OLDPRODUCT URL "+this.oldProduct.prodImageUrl);
   }
 
   editCatProduct() {
@@ -51,10 +44,11 @@ export class EditProductComponent implements OnInit {
     this.editedProduct.unitPrice = this.editProductForm.get('unitPrice').value;
     this.editedProduct.prodDescrip = this.editProductForm.get('prodDescrip').value;
     this.editedProduct.prodImageUrl = this.editProductForm.get('prodImageUrl').value;
+    console.log("MYCATID "+this.categoryId);
     this.dataService.editProduct(this.categoryId, this.prodId, this.editedProduct).subscribe(
       respData=>{
         console.log(respData);
-        window.alert("Successfully Edited Product");
+        // window.alert("Successfully Edited Product");
       });
     this.editProductForm.reset();
   }
