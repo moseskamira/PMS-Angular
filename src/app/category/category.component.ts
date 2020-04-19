@@ -102,18 +102,9 @@ export class CategoryComponent implements OnInit {
     // }
   }
 
-  loadProdDetails(catId: number, prodId: number) {
-    this.dataService.getSingleProduct(catId, prodId).subscribe(
-      prodData=> {
-        console.log("FETCHED PRODUCT "+prodData);
-        this.detailedProd = prodData;
-        console.log("CONVERTED PROD "+this.detailedProd.prodName);
-
-      }
-
-    ) 
-   
-
+  displayProdDetails(prodDet: Product) {
+    this.detailedProd = prodDet;
+    console.log("Image URL "+this.detailedProd.prodImageUrl);
   }
 
   delProd(cId:number, pId: number) {
@@ -126,6 +117,5 @@ export class CategoryComponent implements OnInit {
       )
     }
   }
-
 
 }
