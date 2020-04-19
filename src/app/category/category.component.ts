@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Category } from '../shared/models/category';
+import { Product } from '../shared/models/product';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class CategoryComponent implements OnInit {
   success = false;
   category: Category;
   public smsg = "";
+  detailedProd: Product;
 
   categories: Object;
   catProducts: Object;
@@ -98,6 +100,11 @@ export class CategoryComponent implements OnInit {
     //     this.products = res.body;
     //   })
     // }
+  }
+
+  displayProdDetails(prodDet: Product) {
+    this.detailedProd = prodDet;
+    console.log("Image URL "+this.detailedProd.prodImageUrl);
   }
 
   delProd(cId:number, pId: number) {

@@ -22,6 +22,7 @@ import { FooterComponent } from './footer/footer.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { LoginComponent } from './login/login.component';
 import { MessageComponent } from './message/message.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MessageComponent } from './message/message.component';
     FooterComponent,
     EditProductComponent,
     LoginComponent,
-    MessageComponent
+    MessageComponent,
+    ProductDetailComponent
   ],
   imports: [
     CommonModule,
