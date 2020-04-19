@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Category } from '../shared/models/category';
+import { Product } from '../shared/models/product';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class CategoryComponent implements OnInit {
   success = false;
   category: Category;
   public smsg = "";
+  detailedProd: Product;
 
   categories: Object;
   catProducts: Object;
@@ -100,6 +102,20 @@ export class CategoryComponent implements OnInit {
     // }
   }
 
+  loadProdDetails(catId: number, prodId: number) {
+    this.dataService.getSingleProduct(catId, prodId).subscribe(
+      prodData=> {
+        console.log("FETCHED PRODUCT "+prodData);
+        this.detailedProd = prodData;
+        console.log("CONVERTED PROD "+this.detailedProd.prodName);
+
+      }
+
+    ) 
+   
+
+  }
+
   delProd(cId:number, pId: number) {
     if(confirm("Are You Sure")) {
       this.dataService.deleteProduct(cId, pId).subscribe(
@@ -110,5 +126,6 @@ export class CategoryComponent implements OnInit {
       )
     }
   }
+
 
 }

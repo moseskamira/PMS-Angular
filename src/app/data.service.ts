@@ -5,6 +5,7 @@ import { Category } from './shared/models/category';
 import {  throwError } from 'rxjs';
 import { retry, catchError, tap } from 'rxjs/operators'
 import { Product } from './shared/models/product';
+import { Message } from './shared/models/message';
 
 
 
@@ -158,6 +159,16 @@ export class DataService {
       'Access-Control-Allow-Origin':'*'
     });
     return this.http.get(this.baseUrl+"/category/"+catId+"/product/"+prodId,
+    {responseType: 'json', headers});
+  }
+
+  sendAutoReply(autoReply: Message): Observable<any> {
+    const headers = new HttpHeaders({ 
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin':'*'
+    });
+    this.body = JSON.stringify(autoReply);
+    return this.http.post(this.baseUrl+"/sendNotification",autoReply,
     {responseType: 'json', headers});
   }
 
