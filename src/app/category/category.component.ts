@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Category } from '../shared/models/category';
-import { Product } from '../shared/models/product';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,11 +16,16 @@ export class CategoryComponent implements OnInit {
   success = false;
   category: Category;
   public smsg = "";
-  detailedProd: Product;
+  
+  detailedProd: any;
 
   categories: Object;
   catProducts: Object;
-  constructor(private dataService: DataService, private formBuilder: FormBuilder) {
+  prodToEdit: any;
+
+
+  constructor(private dataService: DataService, private formBuilder: FormBuilder,
+    private router : Router) {
     this.addCategoryForm = this.formBuilder.group({
       categoryName: ['', Validators.required]
     })
@@ -78,33 +83,8 @@ export class CategoryComponent implements OnInit {
     )
   }
 
-  public loadPreviousPage() {
-    console.log("Clicked Previous Button");
-
-    // if (this.apiService.prev !== undefined && this.apiService.prev !== '') {
-    //   this.products = [];
-    //   this.apiService.sendGetRequestToUrl(this.apiService.prev).pipe(takeUntil(this.destroy$)).subscribe((res: HttpResponse<any>) => {
-    //     console.log(res);
-    //     this.products = res.body;
-    //   })
-    // }
-
-  }
-
-  public loadNextPage() {
-    console.log("Clicked Next Page Button");
-    // if (this.apiService.next !== undefined && this.apiService.next !== '') {
-    //   this.products = [];
-    //   this.apiService.sendGetRequestToUrl(this.apiService.next).pipe(takeUntil(this.destroy$)).subscribe((res: HttpResponse<any>) => {
-    //     console.log(res);
-    //     this.products = res.body;
-    //   })
-    // }
-  }
-
-  displayProdDetails(prodDet: Product) {
+  displayProdDetails(prodDet: any) {
     this.detailedProd = prodDet;
-    console.log("Image URL "+this.detailedProd.prodImageUrl);
   }
 
   delProd(cId:number, pId: number) {
@@ -116,6 +96,12 @@ export class CategoryComponent implements OnInit {
         }
       )
     }
+  }
+
+  sendToEditProdPage(prodE: any) {
+    this.prodToEdit = prodE;
+    console.log("PRODID "+this.prodToEdit.prodId);
+    this.router.navigateByUrl('/editProduct', {state: this.prodToEdit});
   }
 
 }
