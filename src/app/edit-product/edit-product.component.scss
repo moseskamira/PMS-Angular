@@ -1,48 +1,52 @@
 
-.editProdForm {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    flex-direction: column;
-    align-items: stretch;
-  }
 
 .editProdDiv {
-    display: block;
-    text-align: center;
-    max-width: 60%;
-    min-height: auto;
-    padding: 10px 0;
-    margin: auto;
-    border-radius: 5px; 
-    border: solid 1px #ccc;
-    box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
-    background: #ebebeb; 
-
+  border-radius: 2em;
+  background-color: #f2f2f2;
+  padding: 20px;
+  max-width: 60%; 
+  margin-right: 20%;
+  margin-left: 20%;
 }
 
-.editProdForm label {
-    margin: 5px 10px 5px 5px;
-    text-align: left;
-  }
-  
-.editProdForm input {
-    vertical-align: middle;
-    margin: 5px 10px 5px 0;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-  }
-  
-.editProdForm button {
-    padding: 10px 20px;
-    background-color: dodgerblue;
-    border: 1px solid #ddd;
-    color: white;
-    cursor: pointer;
-  }
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 6px 6px 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
 
-.editProdForm button:hover {
-    background-color: royalblue;
-  }
+input[type=number], select, textarea {
+  width: 100%;
+  padding: 6px 6px 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
 
+label {
+  padding: 6px 6px 6px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 6px 6px;
+  border: none;
+  border-radius: 2em;
+  cursor: pointer;
+  float: right;
+}
+  
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
