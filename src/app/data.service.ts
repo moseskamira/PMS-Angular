@@ -30,6 +30,7 @@ export class DataService {
     return throwError(this.errorMessage)
   }
   
+  
   addCategory(newCategory: Category): Observable<any> {
     const headers = new HttpHeaders({ 
       'Content-Type': 'application/json',
@@ -39,6 +40,7 @@ export class DataService {
     {responseType: 'json', headers}).pipe(catchError(this.handleError))
   }
   
+
   getCategories(): Observable<any> {
     const headers = new HttpHeaders({ 
       'Content-Type': 'application/json',
