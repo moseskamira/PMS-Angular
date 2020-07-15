@@ -2,20 +2,20 @@
 
 The Product Management System (PMS) is an Angular implemented product with Typescripe language.
 
-The product is intended to consume Back-end points implemented.
+The product is intended to consume Back office implemented in Java.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
 
 The PMS enables a user to perform the following functions:
 
-- Add product category.
-- Delete product category.
-- Add product to individual category.
-- Update product.
-- Delete product.
-- Fetch all products in the system.
-- Fetch products per category.
-- Fetch a single product.
+- Add song Album.
+- Delete song Album.
+- Add song to specified Album.
+- Update song information.
+- Delete song.
+- Fetch all songs in the system.
+- Fetch songs per Album.
+- Fetch a single song.
 
 ### How To Test The App
 
@@ -37,6 +37,11 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-### Note
+### Points To Note
+- The HttpClient is used to send requests to the Backend as used in the DataService class.
+- The Backend is implemented in Spring Boot/ Java.
+- 
 
-The PMS is still under development
+
+
+- The PMS is still under development
